@@ -45,7 +45,11 @@ def listen(articleurl):
     tts.save(mp3savepath)
     mp3url = f"{request.url_root}static/{mp3filename}.mp3"
     mp3href=f'<a href="{mp3url}"> Listen here! </a>'
-    return f"Article url: {articleurl}<br> <br> Article text: {article.text} <br> <br> {mp3savepath} <br> <br> {mp3href}" 
+    #mp3player=f'<audio controls> <source src="{mp3savepath}" type="audio/mpeg">  </audio>'
+    mp3player=f'<video controls="" autoplay="" name="media"><source src="{mp3url}" type="audio/mpeg"></video>'
+    return f"Article url: <a href='{articleurl}'> {article.title} </a> <br> <br> Article text: {article.text}  <br> <br> Listen here: <br> {mp3player}" 
+
+
 
 
 
