@@ -38,7 +38,10 @@ def listen(articleurl):
     article.download()
     article.parse()
     text_lang = detect(article.text)
-    tts = gTTS(article.text, lang=text_lang)
+    try:
+        tts = gTTS(article.text, lang=text_lang)
+    except:
+        return "Sorry. The language of the article is not supported!"
     # generate filename
     m = hashlib.md5()
     m.update(bytes(articleurl, "utf-8"))
