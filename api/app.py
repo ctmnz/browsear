@@ -4,6 +4,7 @@ import re
 import newspaper
 from gtts import gTTS
 import hashlib
+from langdetect import detect
 
 app = Flask(__name__, static_url_path='/static', static_folder='static/')
 
@@ -36,7 +37,8 @@ def listen(articleurl):
     article = newspaper.Article(articleurl)
     article.download()
     article.parse()
-    tts = gTTS(article.text, lang="en")
+    text_lang = detect(article.text)
+    tts = gTTS(article.text, lang=text_lang)
     # generate filename
     m = hashlib.md5()
     m.update(bytes(articleurl, "utf-8"))
