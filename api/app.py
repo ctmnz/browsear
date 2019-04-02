@@ -30,6 +30,42 @@ def homepage():
     return "Welcome to BrowsEar!"
 
 
+@app.route("/text/") 
+def gettext():
+    form = """
+<form action="/text2speech/" name="textform" method="post">
+    <textarea id="textforspeech" class="text" cols="86" rows ="20" name="textforspeech"></textarea>
+<br><br>
+   <input type="submit" value="Talk to me" class="submitButton">
+</form>
+    """
+    return form
+
+
+@app.route("/text2speech/", methods=["POST"])
+def text2speech():
+    the_text = request.form['textforspeech']
+    text_lang = detect(the_text)
+    try:
+        tts = gTTS(the_text, lang=text_lang)
+    except:
+        return "Sorry. The language of the article is not supported!"
+
+    m = hashlib.md5()
+    m.update(bytes(the_text, "utf-8"))
+    mp3filename = m.hexdigest()
+    mp3savepath = f"./static/{mp3filename}.mp3"
+    tts.save(mp3savepath)
+    mp3url = f"{request.url_root}static/{mp3filename}.mp3"
+    mp3href=f'<a href="{mp3url}"> Listen here! </a>'
+    mp3player=f'<video controls="" autoplay="" name="media"><source src="{mp3url}" type="audio/mpeg"></video>'
+    return f"{mp3player} <br> <br> <a href='/text/'> Listen other text </a>" 
+
+
+
+
+
+
 @app.route("/listen/<path:articleurl>")
 def listen(articleurl):
     if not check_url(articleurl):
