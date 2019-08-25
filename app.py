@@ -8,7 +8,6 @@ from langdetect import detect
 
 app = Flask(__name__, static_url_path='/static', static_folder='static/')
 
-
 def check_url(url):
     regex = re.compile(
         r'^(?:http|ftp)s?://' # http:// or https://
@@ -19,16 +18,9 @@ def check_url(url):
         r'(?:/?|[/?]\S+)$', re.IGNORECASE)
     return re.match(regex, url) is not None
 
-
-
-
-
-
-
 @app.route("/")
 def homepage():
     return "Welcome to BrowsEar!"
-
 
 @app.route("/text/") 
 def gettext():
@@ -40,7 +32,6 @@ def gettext():
 </form>
     """
     return form
-
 
 @app.route("/text2speech/", methods=["POST"])
 def text2speech():
@@ -60,11 +51,6 @@ def text2speech():
     mp3href=f'<a href="{mp3url}"> Listen here! </a>'
     mp3player=f'<video controls="" autoplay="" name="media"><source src="{mp3url}" type="audio/mpeg"></video>'
     return f"{mp3player} <br> <br> <a href='/text/'> Listen other text </a>" 
-
-
-
-
-
 
 @app.route("/listen/<path:articleurl>")
 def listen(articleurl):
@@ -89,10 +75,4 @@ def listen(articleurl):
     #mp3player=f'<audio controls> <source src="{mp3savepath}" type="audio/mpeg">  </audio>'
     mp3player=f'<video controls="" autoplay="" name="media"><source src="{mp3url}" type="audio/mpeg"></video>'
     return f"Article url: <a href='{articleurl}'> {article.title} </a> <br> <br> Article text: {article.text}  <br> <br> Listen here: <br> {mp3player}" 
-
-
-
-
-
-
 
