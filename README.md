@@ -1,8 +1,8 @@
 # browsear
 
-Browser for your ears
+## Browser for your ears
 
-This program should ease people into reading news/information from the web.
+**This program should ease people into reading news/information from the web.**
 
 The motivation
 
