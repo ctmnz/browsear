@@ -20,12 +20,14 @@ Yes.
 
 (you will need python3 and virtualenv installed on your system)
 
-$ git clone git@github.com:ctmnz/browsear.git
-$ cd browsear
-$ python3 -m virtualenv ./browsearenv
-$ . ./browsearenv/bin/activate
-$ pip install -r requirements.txt
-$ ./start.sh
+```
+git clone git@github.com:ctmnz/browsear.git
+cd browsear
+python3 -m virtualenv ./browsearenv
+. ./browsearenv/bin/activate
+pip install -r requirements.txt
+./start.sh
+```
 .
 .
 
