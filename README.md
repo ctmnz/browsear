@@ -38,3 +38,12 @@ or
  - Click the play button below.
 
 
+
+The amazing technology used in this project:
+- Flask (https://palletsprojects.com/p/flask/)
+- gTTS (https://pypi.org/project/gTTS/)
+- newspapper (https://pypi.org/project/newspaper3k/)
+- langdetect (https://pypi.org/project/langdetect/)
+- hashlib (https://docs.python.org/3/library/hashlib.html)
+
+
