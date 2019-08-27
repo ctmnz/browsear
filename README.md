@@ -41,11 +41,12 @@ or
 
 
 
-The amazing technology used in this project:
+The amazing technology that is used in this project:
 - Flask (https://palletsprojects.com/p/flask/)
 - gTTS (https://pypi.org/project/gTTS/)
 - newspapper (https://pypi.org/project/newspaper3k/)
 - langdetect (https://pypi.org/project/langdetect/)
 - hashlib (https://docs.python.org/3/library/hashlib.html)
+
 
 
