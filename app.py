@@ -45,7 +45,7 @@ def text2speech():
     m = hashlib.md5()
     m.update(bytes(the_text, "utf-8"))
     mp3filename = m.hexdigest()
-    mp3savepath = "./static/{mp3filename}.mp3"
+    mp3savepath = f"./static/{mp3filename}.mp3"
     tts.save(mp3savepath)
     mp3url = f"{request.url_root}static/{mp3filename}.mp3"
     mp3href=f'<a href="{mp3url}"> Listen here! </a>'
