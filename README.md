@@ -49,3 +49,4 @@ The amazing technology used in this project:
 - hashlib (https://docs.python.org/3/library/hashlib.html)
 
 
+// Testing actions
