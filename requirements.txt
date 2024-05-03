@@ -31,6 +31,6 @@ six==1.16.0
 soupsieve==2.5
 tinysegmenter==0.3
 tldextract==5.1.1
-tqdm==4.66.1
+tqdm==4.66.3
 urllib3==2.2.0
 Werkzeug==3.0.1
